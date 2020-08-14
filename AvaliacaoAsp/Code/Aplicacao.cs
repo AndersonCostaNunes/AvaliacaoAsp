@@ -10,6 +10,7 @@ namespace AvaliacaoAsp.Code
     {   [Key]
         public int Id { get; set; }
         [Required]
+        [MaxLength(50)]
         public string Name { get; set; }
         [MaxLength(250)]
         public string Descricao { get; set; }
@@ -19,6 +20,7 @@ namespace AvaliacaoAsp.Code
         [Required]
         public Status Status { get; set; }
         [EmailAddress]
+        [MaxLength(50)]
         public string Email { get; set; }
 
         public Aplicacao(int id, string name, string descricao, DateTime data, Status status, string email)

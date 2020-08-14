@@ -13,5 +13,19 @@ namespace AvaliacaoAsp
         {
 
         }
+
+        protected void BtnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void BtnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnRemove_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AvaliacaoAsp.Code
 {
-    public enum Status : int
+    public enum Status : byte
     {
         Bloqueado = 1,
         Desenvolvimento = 2,
