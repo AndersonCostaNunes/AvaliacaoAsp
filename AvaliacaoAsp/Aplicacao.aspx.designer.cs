@@ -10,6 +10,6 @@
 namespace AvaliacaoAsp {
     
     
-    public partial class _Default {
+    public partial class Aplicacao {
     }
 }
