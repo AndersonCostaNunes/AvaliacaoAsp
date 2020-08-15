@@ -18,22 +18,30 @@
             </div>
             <asp:SqlDataSource ID="SqlDsAplicacao" runat="server" ConnectionString="<%$ ConnectionStrings:DbAplicationConnectionString %>" SelectCommand="SELECT * FROM [Aplicacaos]"></asp:SqlDataSource>
         </div>
-
         <div class="col-md-4">
             <h2>Entrada de dados</h2>
             <br />
             <label>Nome da aplicação</label>
             <asp:RequiredFieldValidator runat="server" ID="VldName" ControlToValidate="TxtNome" ErrorMessage=" *Campo obrigatório" ForeColor="Red">
             </asp:RequiredFieldValidator>
-            <asp:TextBox ID="TxtNome" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
+            <asp:TextBox ID="TxtNome" runat="server" CssClass="form-control" TextMode="SingleLine" MaxLength="50"></asp:TextBox>
+
             <label>Descrição</label>
-            <asp:TextBox ID="TxtDesc" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+            <asp:RegularExpressionValidator runat="server" ID="valInput"
+                ControlToValidate="txtDesc"
+                ValidationExpression="^[\s\S]{0,250}$"
+                ErrorMessage="Máximo 250 caracteres"
+                ForeColor="Red"> *Máximo 250 caracteres</asp:RegularExpressionValidator>
+            <asp:TextBox ID="TxtDesc" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="4" MaxLength="40"></asp:TextBox>
+
             <label>Data de cadastro</label>
             <asp:RequiredFieldValidator runat="server" ID="VldData" ControlToValidate="TxtData" ErrorMessage=" *Campo obrigatório" ForeColor="Red">
             </asp:RequiredFieldValidator>
             <asp:TextBox ID="TxtData" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+
             <label>Email do responsável</label>
-            <asp:TextBox ID="TxtEmail" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
+            <asp:TextBox ID="TxtEmail" runat="server" CssClass="form-control" TextMode="Email" MaxLength="50"></asp:TextBox>
+
             <label>Status da aplicação</label>
             <asp:DropDownList ID="DdlStatus" runat="server" CssClass="form-control dropdown-toggle">
                 <asp:ListItem Value="1">Bloqueado</asp:ListItem>
@@ -41,13 +49,17 @@
                 <asp:ListItem Value="3">Testes</asp:ListItem>
                 <asp:ListItem Value="4">Aprovado</asp:ListItem>
             </asp:DropDownList>
-            <asp:Label ID="LblTest" runat="server" Text="Indice a ser editado ou deletado" Visible="False"></asp:Label>
-            <asp:Label ID="LblTest2" runat="server" Text="" Visible="False"></asp:Label>
+
+            <asp:Label ID="LblShowIndex" runat="server" Text="Indice a ser editado ou deletado" Visible="False"></asp:Label>
+            <asp:Label ID="LblSelectedIndex" runat="server" Text="" Visible="False"></asp:Label>
             <br />
             <asp:Button ID="BtnAdd" runat="server" OnClick="BtnAdd_Click" Text="Adicionar" CssClass="btn btn-primary" Width="90px" />
             <asp:Button ID="BtnEdit" runat="server" OnClick="BtnEdit_Click" Text="Editar" CssClass="btn btn-primary" Width="90px" Visible="False" />
             <asp:Button ID="BtnRemove" runat="server" OnClick="BtnRemove_Click" Text="Remover" CssClass="btn btn-danger" Width="90px" Visible="False" />
             <asp:Button ID="BtnCancelar" runat="server" OnClick="BtnCancelar_Click" Text="Cancelar" CssClass="btn btn-primary" Width="90px" Visible="False" />
+            <br />
+            <br />
+            <asp:Button ID="BtnAtualizar" runat="server" OnClick="BtnAtualizar_Click" Text="Atualizar" CssClass="btn btn-primary" Width="90px" Visible="True" />
             <div class="input-group">
             </div>
         </div>

@@ -49,6 +49,15 @@ namespace AvaliacaoAsp {
         protected global::System.Web.UI.WebControls.TextBox TxtNome;
         
         /// <summary>
+        /// Controle valInput.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator valInput;
+        
+        /// <summary>
         /// Controle TxtDesc.
         /// </summary>
         /// <remarks>
@@ -94,22 +103,22 @@ namespace AvaliacaoAsp {
         protected global::System.Web.UI.WebControls.DropDownList DdlStatus;
         
         /// <summary>
-        /// Controle LblTest.
+        /// Controle LblShowIndex.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblTest;
+        protected global::System.Web.UI.WebControls.Label LblShowIndex;
         
         /// <summary>
-        /// Controle LblTest2.
+        /// Controle LblSelectedIndex.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblTest2;
+        protected global::System.Web.UI.WebControls.Label LblSelectedIndex;
         
         /// <summary>
         /// Controle BtnAdd.
@@ -146,5 +155,14 @@ namespace AvaliacaoAsp {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnCancelar;
+        
+        /// <summary>
+        /// Controle BtnAtualizar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAtualizar;
     }
 }

@@ -38,9 +38,13 @@ namespace AvaliacaoAsp
             LimparTextos();
         }
         protected void BtnCancelar_Click(object sender, EventArgs e)
-        {            
+        {
             GvApp.DataBind();
             LimparTextos();
+        }
+        protected void BtnAtualizar_Click(object sender, EventArgs e)
+        {
+            GvApp.DataBind();
         }
         #endregion
 
@@ -51,12 +55,12 @@ namespace AvaliacaoAsp
             DateTime dt = DateTime.Parse(data);
             Status st = (Status)Enum.Parse(typeof(Status), status, true);
             Contexto.Aplicacoes.Add(new Code.Aplicacao(nome, descricao, dt, st, email));
-            Contexto.SaveChanges();            
+            Contexto.SaveChanges();
         }
 
         public void EditAplicacao(string nome, string descricao, string data, string status, string email)
         {
-            int index = int.Parse(LblTest2.Text);
+            int index = int.Parse(LblSelectedIndex.Text);
             var app = Contexto.Aplicacoes.Find(index);
             if (app != null)
             {
@@ -67,18 +71,18 @@ namespace AvaliacaoAsp
                 app.Data = dt;
                 app.Status = st;
                 app.Email = email;
-                Contexto.SaveChanges();                
+                Contexto.SaveChanges();
             }
         }
 
         public void RemoveAplicacao()
         {
-            int index = int.Parse(LblTest2.Text);
+            int index = int.Parse(LblSelectedIndex.Text);
             var app = Contexto.Aplicacoes.Find(index);
             if (app != null)
             {
                 Contexto.Aplicacoes.Remove(app);
-                Contexto.SaveChanges();                
+                Contexto.SaveChanges();
             }
         }
 
@@ -93,8 +97,8 @@ namespace AvaliacaoAsp
             BtnEdit.Visible = false;
             BtnRemove.Visible = false;
             BtnCancelar.Visible = false;
-            LblTest.Visible = false;
-            LblTest2.Visible = false;
+            LblShowIndex.Visible = false;
+            LblSelectedIndex.Visible = false;
         }
         protected void GvApp_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -110,19 +114,18 @@ namespace AvaliacaoAsp
             BtnEdit.Visible = true;
             BtnRemove.Visible = true;
             BtnCancelar.Visible = true;
-            LblTest.Visible = true;
-            LblTest2.Visible = true;
-            int index = int.Parse(GvApp.SelectedRow.Cells[0].Text);
-            var app = Contexto.Aplicacoes.Find(index);
+            LblShowIndex.Visible = true;
+            LblSelectedIndex.Visible = true;
+            LblSelectedIndex.Text = GvApp.SelectedRow.Cells[0].Text;
+            var app = Contexto.Aplicacoes.Find(int.Parse(LblSelectedIndex.Text));
             if (app != null)
             {
-                LblTest2.Text = index.ToString();
                 TxtNome.Text = app.Nome;
                 TxtDesc.Text = app.Descricao;
                 TxtData.Text = app.Data.ToString("yyyy-MM-dd");
-                DdlStatus.Text = app.Status.ToString();
+                DdlStatus.Text = ((int)app.Status).ToString();
                 TxtEmail.Text = app.Email;
-            }           
+            }
         }
 
         #endregion
