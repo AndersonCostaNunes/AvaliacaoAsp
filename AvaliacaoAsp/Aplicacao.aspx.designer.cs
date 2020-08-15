@@ -31,6 +31,15 @@ namespace AvaliacaoAsp {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDsAplicacao;
         
         /// <summary>
+        /// Controle ValidationSummary1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        
+        /// <summary>
         /// Controle VldName.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace AvaliacaoAsp {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtData;
+        
+        /// <summary>
+        /// Controle VlEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator VlEmail;
         
         /// <summary>
         /// Controle TxtEmail.

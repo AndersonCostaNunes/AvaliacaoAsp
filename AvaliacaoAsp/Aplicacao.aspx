@@ -5,24 +5,32 @@
         <div class="col-md-8">
             <h2>Aplicações</h2>
             <div class="table-responsive">
-                <asp:GridView ID="GvApp" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDsAplicacao" UseAccessibleHeader="true" CssClass="table table-hover table-striped" OnRowDataBound="GvApp_RowDataBound" OnSelectedIndexChanged="GvApp_SelectedIndexChanged">
+                <asp:GridView ID="GvApp" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDsAplicacao" UseAccessibleHeader="true" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="GvApp_RowDataBound" OnSelectedIndexChanged="GvApp_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
                         <asp:BoundField DataField="Nome" HeaderText="Nome" SortExpression="Nome" />
                         <asp:BoundField DataField="Descricao" HeaderText="Descricao" SortExpression="Descricao" />
                         <asp:BoundField DataField="Data" HeaderText="Data" SortExpression="Data" DataFormatString="{0:dd/MM/yyyy}" />
-                        <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                        <asp:TemplateField HeaderText="Status">
+                            <ItemTemplate>
+                                <%# Enum.Parse(typeof(Status), DataBinder.Eval(Container.DataItem, "Status").ToString()) %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
                     </Columns>
                 </asp:GridView>
+                <asp:SqlDataSource ID="SqlDsAplicacao" runat="server" ConnectionString="<%$ ConnectionStrings:DbAplicationConnectionString %>" SelectCommand="SELECT * FROM [Aplicacaos]"></asp:SqlDataSource>
             </div>
-            <asp:SqlDataSource ID="SqlDsAplicacao" runat="server" ConnectionString="<%$ ConnectionStrings:DbAplicationConnectionString %>" SelectCommand="SELECT * FROM [Aplicacaos]"></asp:SqlDataSource>
         </div>
         <div class="col-md-4">
             <h2>Entrada de dados</h2>
-            <br />
+
+            <div class="input-group">
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="BulletList"
+                    ShowMessageBox="False" ShowSummary="True" CssClass="alert alert-danger" />
+            </div>
             <label>Nome da aplicação</label>
-            <asp:RequiredFieldValidator runat="server" ID="VldName" ControlToValidate="TxtNome" ErrorMessage=" *Campo obrigatório" ForeColor="Red">
+            <asp:RequiredFieldValidator runat="server" ID="VldName" ControlToValidate="TxtNome" ErrorMessage="Insira um nome válido" ForeColor="Red">*
             </asp:RequiredFieldValidator>
             <asp:TextBox ID="TxtNome" runat="server" CssClass="form-control" TextMode="SingleLine" MaxLength="50"></asp:TextBox>
 
@@ -31,15 +39,19 @@
                 ControlToValidate="txtDesc"
                 ValidationExpression="^[\s\S]{0,250}$"
                 ErrorMessage="Máximo 250 caracteres"
-                ForeColor="Red"> *Máximo 250 caracteres</asp:RegularExpressionValidator>
+                Display="Dynamic"
+                ForeColor="Red">*
+            </asp:RegularExpressionValidator>
             <asp:TextBox ID="TxtDesc" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="4" MaxLength="40"></asp:TextBox>
 
             <label>Data de cadastro</label>
-            <asp:RequiredFieldValidator runat="server" ID="VldData" ControlToValidate="TxtData" ErrorMessage=" *Campo obrigatório" ForeColor="Red">
+            <asp:RequiredFieldValidator runat="server" ID="VldData" ControlToValidate="TxtData" ErrorMessage="Insira uma data válida" ForeColor="Red" Display="Dynamic">*
             </asp:RequiredFieldValidator>
             <asp:TextBox ID="TxtData" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
 
             <label>Email do responsável</label>
+            <asp:RequiredFieldValidator runat="server" ID="VlEmail" ControlToValidate="TxtEmail" ErrorMessage="Insira um email válido" ForeColor="Red" Display="Dynamic">*
+            </asp:RequiredFieldValidator>
             <asp:TextBox ID="TxtEmail" runat="server" CssClass="form-control" TextMode="Email" MaxLength="50"></asp:TextBox>
 
             <label>Status da aplicação</label>
@@ -59,9 +71,7 @@
             <asp:Button ID="BtnCancelar" runat="server" OnClick="BtnCancelar_Click" Text="Cancelar" CssClass="btn btn-primary" Width="90px" Visible="False" />
             <br />
             <br />
-            <asp:Button ID="BtnAtualizar" runat="server" OnClick="BtnAtualizar_Click" Text="Atualizar" CssClass="btn btn-primary" Width="90px" Visible="True" />
-            <div class="input-group">
-            </div>
+            <asp:Button ID="BtnAtualizar" runat="server" OnClick="BtnAtualizar_Click" Text="Atualizar" CssClass="btn btn-primary" Width="90px" Visible="True" CausesValidation="false" />
         </div>
     </div>
 </asp:Content>

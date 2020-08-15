@@ -114,6 +114,7 @@
   <ItemGroup>
     <Content Include="Aplicacao.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap-flatly.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
