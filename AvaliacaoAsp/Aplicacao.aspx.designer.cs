@@ -31,6 +31,15 @@ namespace AvaliacaoAsp {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDsAplicacao;
         
         /// <summary>
+        /// Controle VldName.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator VldName;
+        
+        /// <summary>
         /// Controle TxtNome.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace AvaliacaoAsp {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtDesc;
+        
+        /// <summary>
+        /// Controle VldData.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator VldData;
         
         /// <summary>
         /// Controle TxtData.
@@ -76,6 +94,24 @@ namespace AvaliacaoAsp {
         protected global::System.Web.UI.WebControls.DropDownList DdlStatus;
         
         /// <summary>
+        /// Controle LblTest.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblTest;
+        
+        /// <summary>
+        /// Controle LblTest2.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblTest2;
+        
+        /// <summary>
         /// Controle BtnAdd.
         /// </summary>
         /// <remarks>
@@ -101,5 +137,14 @@ namespace AvaliacaoAsp {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnRemove;
+        
+        /// <summary>
+        /// Controle BtnCancelar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnCancelar;
     }
 }

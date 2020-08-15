@@ -13,7 +13,7 @@ namespace AvaliacaoAsp.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202008142012338_Init"; }
+            get { return "202008142323193_Init"; }
         }
         
         string IMigrationMetadata.Source

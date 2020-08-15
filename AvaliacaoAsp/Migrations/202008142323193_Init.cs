@@ -12,7 +12,7 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false, maxLength: 50),
+                        Nome = c.String(nullable: false, maxLength: 50),
                         Descricao = c.String(maxLength: 250),
                         Data = c.DateTime(nullable: false),
                         Status = c.Byte(nullable: false),
