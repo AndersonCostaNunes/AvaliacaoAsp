@@ -5,12 +5,14 @@
         <div class="col-md-8">
             <h2>Aplicações</h2>
             <div class="table-responsive">
+                 <%--Área do GridView--%>  
                 <asp:GridView ID="GvApp" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDsAplicacao" UseAccessibleHeader="true" CssClass="table table-striped table-bordered table-condensed" OnRowDataBound="GvApp_RowDataBound" OnSelectedIndexChanged="GvApp_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
                         <asp:BoundField DataField="Nome" HeaderText="Nome" SortExpression="Nome" />
                         <asp:BoundField DataField="Descricao" HeaderText="Descricao" SortExpression="Descricao" />
                         <asp:BoundField DataField="Data" HeaderText="Data" SortExpression="Data" DataFormatString="{0:dd/MM/yyyy}" />
+                         <%--Passagem do valor do enum Status para o grid, ao invés de um valor byte--%>
                         <asp:TemplateField HeaderText="Status">
                             <ItemTemplate>
                                 <%# Enum.Parse(typeof(Status), DataBinder.Eval(Container.DataItem, "Status").ToString()) %>
@@ -19,12 +21,13 @@
                         <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
                     </Columns>
                 </asp:GridView>
+                 <%--Conexão do banco de dados SQL com o GridView--%>
                 <asp:SqlDataSource ID="SqlDsAplicacao" runat="server" ConnectionString="<%$ ConnectionStrings:DbAplicationConnectionString %>" SelectCommand="SELECT * FROM [Aplicacaos]"></asp:SqlDataSource>
             </div>
         </div>
         <div class="col-md-4">
             <h2>Entrada de dados</h2>
-
+             <%--Sumário de validação dos campos--%>
             <div class="input-group">
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="BulletList"
                     ShowMessageBox="False" ShowSummary="True" CssClass="alert alert-danger" />
@@ -61,7 +64,7 @@
                 <asp:ListItem Value="3">Testes</asp:ListItem>
                 <asp:ListItem Value="4">Aprovado</asp:ListItem>
             </asp:DropDownList>
-
+             <%-- Mostra qual índice está selecionado no GridView --%>
             <asp:Label ID="LblShowIndex" runat="server" Text="Indice a ser editado ou deletado" Visible="False"></asp:Label>
             <asp:Label ID="LblSelectedIndex" runat="server" Text="" Visible="False"></asp:Label>
             <br />

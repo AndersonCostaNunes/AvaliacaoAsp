@@ -11,6 +11,7 @@ namespace AvaliacaoAsp
 {
     public partial class Aplicacao : System.Web.UI.Page
     {
+        // Instanciação do DbContext Contexto
         Context Contexto = new Context();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -108,6 +109,7 @@ namespace AvaliacaoAsp
             }
         }
 
+        //Evento para receber o índice selecionado no GridView
         protected void GvApp_SelectedIndexChanged(object sender, EventArgs e)
         {
             BtnAdd.Visible = false;
